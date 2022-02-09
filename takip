@@ -1,0 +1,13 @@
+• strlcat
+• strchr
+• strrchr
+• strncmp
+• memchr
+• memcmp
+• strnstr
+• atoi
+• calloc
+• strdup
+ft_substr
+ft_strjoin
+ft_strtrim
