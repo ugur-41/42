@@ -6,7 +6,7 @@
 /*   By: udemirel <udemirel@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:08:03 by udemirel          #+#    #+#             */
-/*   Updated: 2022/02/09 16:29:40 by udemirel         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:26:30 by udemirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
-	size_t src_len;
+	size_t	i;
+	size_t	src_len;
 
 	i = 0;
 	src_len = ft_strlen(src);
