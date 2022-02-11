@@ -6,11 +6,13 @@
 /*   By: udemirel <udemirel@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:43:47 by udemirel          #+#    #+#             */
-/*   Updated: 2022/02/10 17:20:15 by udemirel         ###   ########.fr       */
+/*   Updated: 2022/02/11 18:38:49 by udemirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	ft_checksign(char c, int *i);
 
 int	ft_atoi(const char *str)
 {
@@ -21,27 +23,31 @@ int	ft_atoi(const char *str)
 	result = 0;
 	sign = 1;
 	i = 0;
-	while (str[i] && (str[i] == '\f' || str[i] == '\t' || str[i] == ' '
-			|| str[i] == '\n' || str[i] == '\r' || str[i] == '\v'))
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
+	sign = ft_checksign(str[i], &i);
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
 		result *= 10;
+		if (result > LONG_MAX)
+		{
+			if (sign < 0)
+				return (0);
+			return (-1);
+		}
 		result += str[i] - '0';
 		i++;
 	}
-	if (result > LONG_MAX)
+	return (result * sign);
+}
+
+int	ft_checksign(char c, int *i)
+{
+	if (c == '-' || c == '+')
 	{
-		if (sign < 0)
-			return (0);
-		return (-1);
+		++*i;
+		if (c == '-')
+			return (-1);
 	}
-	result *= sign;
-	return (result);
+	return (1);
 }

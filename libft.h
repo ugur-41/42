@@ -6,13 +6,14 @@
 /*   By: udemirel <udemirel@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 11:01:50 by udemirel          #+#    #+#             */
-/*   Updated: 2022/02/10 13:34:18 by udemirel         ###   ########.fr       */
+/*   Updated: 2022/02/11 15:42:12 by udemirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>
 
