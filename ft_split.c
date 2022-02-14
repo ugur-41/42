@@ -6,13 +6,13 @@
 /*   By: udemirel <udemirel@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:27:48 by udemirel          #+#    #+#             */
-/*   Updated: 2022/02/10 13:27:50 by udemirel         ###   ########.fr       */
+/*   Updated: 2022/02/14 11:14:49 by udemirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	deli_count(char *str, char chr)
+static size_t	deli_count(char *str, char chr)
 {
 	unsigned int	i;
 

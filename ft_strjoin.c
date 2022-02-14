@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: udemirel <udemirel@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 15:24:47 by udemirel          #+#    #+#             */
-/*   Updated: 2022/02/14 11:15:56 by udemirel         ###   ########.fr       */
+/*   Created: 2022/02/14 10:16:26 by udemirel          #+#    #+#             */
+/*   Updated: 2022/02/14 11:04:17 by udemirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	int		len;
-	char	*z;
+	unsigned int	str1;
+	unsigned int	str2;
+	unsigned int	i;
+	char			*res;
 
-	len = ft_strlen(s);
-	z = (char *)s + len;
-	if (c == '\0')
-		return (z);
-	while (z != s)
+	str1 = ft_strlen(s1);
+	str2 = ft_strlen(s2);
+	res = (char *)malloc(sizeof (char) * (str1 + str2 + 1));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (i < str1)
 	{
-		if (*z == c)
-			return (z);
-		z--;
+		res[i] = s1[i];
+		i++;
 	}
-	return (NULL);
+	str1 = 0;
+	while (str1 < str2)
+	{
+		res[i] = s2[str1];
+		str1++;
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
 }

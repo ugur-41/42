@@ -6,13 +6,13 @@
 /*   By: udemirel <udemirel@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:43:47 by udemirel          #+#    #+#             */
-/*   Updated: 2022/02/11 18:38:49 by udemirel         ###   ########.fr       */
+/*   Updated: 2022/02/14 11:13:24 by udemirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_checksign(char c, int *i);
+static int	ft_checksign(char c, int *i);
 
 int	ft_atoi(const char *str)
 {
@@ -41,7 +41,7 @@ int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-int	ft_checksign(char c, int *i)
+static int	ft_checksign(char c, int *i)
 {
 	if (c == '-' || c == '+')
 	{
