@@ -6,7 +6,7 @@
 /*   By: udemirel <udemirel@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:32:41 by udemirel          #+#    #+#             */
-/*   Updated: 2022/03/03 14:36:18 by udemirel         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:19:38 by udemirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,5 @@ char	*ft_new_left_str(char *left_str)
 		str[j++] = left_str[i++];
 	str[j] = '\0';
 	free(left_str);
-    return (str);
+	return (str);
 }
