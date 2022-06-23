@@ -6,7 +6,7 @@
 /*   By: udemirel <udemirel@student.42kocaeli.com.  +#+  +:+	   +#+		*/
 /*												+#+#+#+#+#+   +#+		   */
 /*   Created: 2022/03/08 10:45:52 by udemirel		  #+#	#+#			 */
-/*   Updated: 2022/03/14 15:20:16 by udemirel         ###   ########.fr       */
+/*   Updated: 2022/06/23 12:06:55 by udemirel         ###   ########.fr       */
 /*																			*/
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printchar(int c)
 	write(1, &c, 1);
 	return (1);
 }
-
+//
 int	ft_formats(va_list ap, const char format)
 {
 	int	length;
