@@ -1,6 +1,30 @@
-LIBPATH = minilibx/libmlx.a
+NAME = so_long
+MLX = MiniLibX/
+LIB = ft_printf/
+FLAGS = -Wall -Werror -Wextra
+OPENGLFLAGS = -framework OpenGL -framework AppKit -L./minilibx -lmlx
+SRCS = srcs/* ft_printf/libftprintf.a
 
+all: minilib $(NAME)
 
+$(NAME):
+	@make -C $(LIB)
+	@gcc $(FLAGS) $(OPENGLFLAGS) $(SRCS) -I. -o $(NAME)
+	@echo "\033[36;5m\tSo_long Compiled!\033[0m"
 
-all:
-	gcc -Wall -Werror -Wextra -framework OpenGL -framework AppKit -o so_long so_long.c utils.c $(LIBPATH)
+re: fclean all
+
+clean: mclean
+	@make fclean -C $(LIB)
+	@echo "\033[35;5m\tSo_long Clean!\033[0m"
+fclean: clean
+	@rm -rf so_long
+	@echo "Complete Wipe!"
+
+minilib:
+	@make -C $(MLX)
+
+mclean:
+	@make clean -C $(MLX)
+
+.PHONY: all re clean fclean minilib mclean $(NAME)

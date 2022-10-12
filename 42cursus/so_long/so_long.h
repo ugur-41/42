@@ -3,53 +3,92 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: udemirel <udemirel@student.42kocaeli.com.  +#+  +:+       +#+        */
+/*   By: udemirel <udemirel@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 13:13:43 by udemirel          #+#    #+#             */
-/*   Updated: 2022/05/30 13:13:45 by udemirel         ###   ########.fr       */
+/*   Created: 2022/05/23 10:21:32 by udemirel          #+#    #+#             */
+/*   Updated: 2022/08/26 10:12:59 by udemirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
-# endif
-
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
+# include "MiniLibX/mlx.h"
+# include "ft_printf/ft_printf.h"
 # include <fcntl.h>
 
-typedef	struct	s_data
-{
-	void 	*img;
-	char 	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int 	height;
-	int 	width;
-}				t_data;
+# define KEY_PRESS_EVNT	2
+# define IMG			64
+# define W				13
+# define A				0
+# define S				1
+# define D				2
+# define E				14
+# define ESC			53
+# define Q				12
+# define GND			"./tiles/grass.xpm"
+# define WLL			"./tiles/wall.xpm"
+# define PLRR			"./tiles/plyr.xpm"
+# define PLRL			"./tiles/plyrl.xpm"
+# define EXT			"./tiles/exit.xpm"
+# define EXTC			"./tiles/exitclose.xpm"
+# define MSS			"./tiles/missing.xpm"
+# define CN				"./tiles/coin.xpm"
 
-typedef	struct s_map
+typedef struct window{
+	int		x_size;
+	int		y_size;
+	char	*title;
+	void	*p_mlx;
+	void	*p_win;
+}	t_window;
+
+typedef struct player
 {
-	int		height;
-	int		width;
+	int	px;
+	int	py;
+	int	mcnt;
+}	t_plyr;
+
+typedef struct game
+{
 	char	**map;
-}			   t_map;
+	int		m_x_size;
+	int		m_y_size;
+	int		cn;
+}	t_game;
 
+typedef struct tiles
+{
+	int		hgt;
+	int		wdt;
+	void	*gnd;
+	void	*wall;
+	void	*coin;
+	void	*exit;
+	void	*plyr;
+}	t_tiles;
 
-void				my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void				ft_map_feat(char **str, t_map *maps);
-unsigned int		ft_strlen(char *str);
+typedef struct vars
+{
+	t_plyr		*plyr;
+	t_tiles		*tile;
+	t_window	*win;
+	t_game		*game;
+}	t_vars;
 
-char				*ft_strjoin(char *left_str, char *buff);
-char				*ft_get_next_line(int fd);
+t_tiles	*tiles_init(t_window *win);
+t_plyr	*player_init( void );
+t_game	*game_init(void);
 
-int		ft_strchr(char *str, char chr);
+char	*get_line(int fd);
 
+int		exit_game(t_vars *v);
+int		diag_extension(char *str);
 
-
+void	mlx_instance_init(char **av, t_vars *v);
+void	draw_map(t_vars *v);
+void	count_map_size(char *str, t_vars *v);
+void	diagnose_map(t_vars *v);
+void	ft_error(char *str);
 #endif
